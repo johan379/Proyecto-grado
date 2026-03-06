@@ -15,7 +15,7 @@ export default function Footer() {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
           <a href="https://x.com" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
         </div>
-        <p className="footer-text">© 2026 Bienvenidos a easy</p>
+        <p className="footer-text">© 2026 Bienvenidos a LukySystem</p>
       </footer>
     );
 }

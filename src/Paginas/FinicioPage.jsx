@@ -1,13 +1,11 @@
 import { useState } from "react";
-import Registro from "../Componentes/Registro";
+import Finicio from "../Componentes/Finicio";
 import Footer from "../Componentes/Footer";
 
-export default function RegistroPage() {
+export default function InicioSesionPage() {
   const [form, setForm] = useState({
-    nombre: "",
-    telefono: "",
     correo: "",
-    codigo: ""
+    contrasena: ""
   });
 
   const handleChange = (e) => {
@@ -16,19 +14,19 @@ export default function RegistroPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { Nom: form.nombre, Tel: form.telefono, Cor: form.correo, Codi: form.codigo };
+    const data = { Cor: form.correo, Con: form.contrasena };
 
     try {
-      const res = await fetch('http://localhost:8000/crear', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
       if (res.ok) {
         const resData = await res.json();
         alert(resData.message);
-        setForm({ nombre: "", telefono: "", correo: "", codigo: "" });
+        setForm({ correo: "", contrasena: "" });
       }
     } catch (err) {
       console.error(err);
@@ -37,7 +35,7 @@ export default function RegistroPage() {
 
   return (
     <div className="page-container">
-      <Registro
+      <Finicio
         handleSubmit={handleSubmit}
         form={form}
         handleChange={handleChange}
