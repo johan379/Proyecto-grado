@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     
         <footer className="footer">
-        <div className="footer-info"> <br />
-          <p><MdLocationOn /> Calle 123 #45-67, Bogotá, Colombia</p>
+      <div className="footer-info">          
+  <p><MdLocationOn /> Calle 123 #45-67, Bogotá, Colombia</p>
           <p><MdPhone /> +57 322 727 2926</p>
         </div>
         <div className="footer-socials">

@@ -35,14 +35,17 @@ export default function RegistroPage() {
     }
   };
 
-  return (
-    <div className="page-container">
+return (
+  <div className="page-container">
+    <div className="content-wrapper">
       <Registro
         handleSubmit={handleSubmit}
         form={form}
         handleChange={handleChange}
       />
-      <Footer />
     </div>
-  );
+
+    <Footer />   
+  </div>
+);
 }
