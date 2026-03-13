@@ -44,8 +44,6 @@ return (
         handleChange={handleChange}
       />
     </div>
-
-    <Footer />   
   </div>
 );
 }

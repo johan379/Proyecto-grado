@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../style/Registro.css";
 
 export default function Finicio({ handleSubmit, form, handleChange }) {
@@ -35,8 +36,18 @@ export default function Finicio({ handleSubmit, form, handleChange }) {
           />
         </div>
 
+        <Link to="/recuperar" className="registro-link registro-forgot">
+          ¿Olvidaste tu contraseña?
+        </Link>
+
         <button type="submit" className="registro-btn">Iniciar Sesión</button>
       </form>
+
+      <p className="registro-footer">
+        ¿Aún no tienes una cuenta?{" "}
+        <Link to="/registro" className="registro-link">Créala aquí</Link>
+      </p>
+
     </div>
   );
 }

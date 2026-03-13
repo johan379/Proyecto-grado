@@ -35,12 +35,13 @@ export default function InicioSesionPage() {
 
   return (
     <div className="page-container">
+    <div className="content-wrapper">
       <Finicio
         handleSubmit={handleSubmit}
         form={form}
         handleChange={handleChange}
       />
-      <Footer />
+    </div>
     </div>
   );
 }

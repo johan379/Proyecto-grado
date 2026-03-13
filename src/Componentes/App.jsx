@@ -6,19 +6,18 @@ import InicioPage from '../Paginas/InicioPage';
 import InventarioPage from '../Paginas/InventarioPage';
 import AdminUsuariosPage from '../Paginas/AdminUsuarioPage';
 import AdminDocumentosPage from '../Paginas/AdminDocuentosPage';
+import Recuperarcontra from '../Paginas/Pagerecuperarcontra';
 
 const App = () => {
-  // ── Usuario logueado ──────────────────────────────────
-  // null = no ha iniciado sesión
-  // { nombre, correo, rol } = sesión activa
+  
   const [usuarioActual, setUsuarioActual] = useState(null);
 
-  // Llama esto cuando el login sea exitoso, pasándole el usuario
+
   const handleLogin = (usuario) => {
     setUsuarioActual(usuario);
   };
 
-  // Llama esto al cerrar sesión
+  
   const handleLogout = () => {
     setUsuarioActual(null);
   };
@@ -32,7 +31,8 @@ const App = () => {
         <Route path="/Inventario"     element={<InventarioPage usuarioActual={usuarioActual} />} />
         <Route path="/AdminUsuario"   element={<AdminUsuariosPage usuarioActual={usuarioActual} />} />
         <Route path="/AdminDocumentos" element={<AdminDocumentosPage usuarioActual={usuarioActual} />} />
-        
+        <Route path="/Recuperar" element={<Recuperarcontra usuarioActual={usuarioActual} />} />
+
       </Routes>
     </BrowserRouter>
   );

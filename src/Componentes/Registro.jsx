@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/Registro.css";
+import { Link } from "react-router-dom";
 
 export default function Registro({ handleSubmit, form, handleChange }) {
   return (
@@ -65,6 +66,10 @@ export default function Registro({ handleSubmit, form, handleChange }) {
 
         <button type="submit" className="registro-btn">Enviar</button>
       </form>
+       <p className="registro-footer">
+        ¿Ya tienes una cuenta?{" "}
+        <Link to="/Inicio" className="registro-link">Inicia sesión</Link>
+      </p>
     </div>
   );
 }
