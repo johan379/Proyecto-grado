@@ -4,11 +4,7 @@ import Footer from "../Componentes/Footer";
 
 // ── Datos de ejemplo ─────────────────────────────────────
 const DOCUMENTOS_INICIALES = [
-  { id: 1, nombre: "Factura Proveedor TechCorp Enero",  tipo: "Factura",  fecha: "2025-01-10", size: "245 KB", descripcion: "Compra de insumos de oficina" },
-  { id: 2, nombre: "Recibo Arriendo Febrero",            tipo: "Recibo",   fecha: "2025-02-01", size: "89 KB",  descripcion: "" },
-  { id: 3, nombre: "Contrato Servicios Asesoría Legal",  tipo: "Contrato", fecha: "2025-01-20", size: "1.2 MB", descripcion: "Contrato anual 2025" },
-  { id: 4, nombre: "Factura Venta Cliente ABC",          tipo: "Factura",  fecha: "2025-02-14", size: "178 KB", descripcion: "Venta productos marzo" },
-  { id: 5, nombre: "Factura Servicios Internet",         tipo: "Factura",  fecha: "2025-03-01", size: "95 KB",  descripcion: "" },
+ 
 ];
 
 const FORM_VACIO = { nombre: "", tipo: "", fecha: "", descripcion: "" };

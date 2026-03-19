@@ -20,11 +20,7 @@ export default function PageRecuperar() {
     setError("");
 
     try {
-      // TODO: descomentar cuando implementes Supabase
-      // const { error } = await supabase.auth.resetPasswordForEmail(form.correo, {
-      //   redirectTo: "https://tuapp.com/reset-password",
-      // });
-      // if (error) throw error;
+     
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setEnviado(true);
@@ -35,11 +31,11 @@ export default function PageRecuperar() {
     }
   };
 
- // ... (resto del código igual)
+
 
   if (enviado) {
     return (
-      <div className="content-wrapper"> {/* Envoltura para centrar */}
+      <div className="content-wrapper"> {}
         <div className="registro-container">
           <div className="recuperar-icono" style={{ textAlign: 'center', fontSize: '3rem' }}>✉</div>
           <h1 className="registro-titulo">Revisa tu correo</h1>
@@ -55,7 +51,7 @@ export default function PageRecuperar() {
   }
 
   return (
-    <div className="content-wrapper"> {/* Envoltura para centrar el formulario principal */}
+    <div className="content-wrapper"> {}
       <Recuperarcontra
         form={form}
         handleChange={handleChange}

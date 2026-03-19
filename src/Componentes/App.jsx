@@ -7,6 +7,7 @@ import InventarioPage from '../Paginas/InventarioPage';
 import AdminUsuariosPage from '../Paginas/AdminUsuarioPage';
 import AdminDocumentosPage from '../Paginas/AdminDocuentosPage';
 import Recuperarcontra from '../Paginas/Pagerecuperarcontra';
+import DevPanelPage from '../Paginas/DevpanelPage';
 
 const App = () => {
   
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/AdminUsuario"   element={<AdminUsuariosPage usuarioActual={usuarioActual} />} />
         <Route path="/AdminDocumentos" element={<AdminDocumentosPage usuarioActual={usuarioActual} />} />
         <Route path="/Recuperar" element={<Recuperarcontra usuarioActual={usuarioActual} />} />
+        <Route path="/dev" element={<DevPanelPage />} />
 
       </Routes>
     </BrowserRouter>

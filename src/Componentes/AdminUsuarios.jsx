@@ -50,7 +50,7 @@ export default function AdminUsuarios({
         </button>
       </header>
 
-      {/* ── STATS ── */}
+      {}
       <section className="au__stats">
         <div className="au__stat">
           <span className="au__stat-icon">👥</span>

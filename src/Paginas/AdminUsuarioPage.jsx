@@ -8,10 +8,7 @@ import Footer from "../Componentes/Footer";
 // ── Datos de ejemplo ─────────────────────────────────────
 // Reemplaza con tu API/backend
 const USUARIOS_INICIALES = [
-  { id: 1, nombre: "Carlos Mendoza",  correo: "carlos@lukysystem.com",  rol: "Administrador", activo: true,  fechaRegistro: "2024-01-15" },
-  { id: 2, nombre: "Laura Gómez",     correo: "laura@lukysystem.com",   rol: "Vendedor",      activo: true,  fechaRegistro: "2024-03-02" },
-  { id: 3, nombre: "Andrés Pérez",    correo: "andres@lukysystem.com",  rol: "Vendedor",      activo: false, fechaRegistro: "2024-05-20" },
-  { id: 4, nombre: "María Torres",    correo: "maria@lukysystem.com",   rol: "Vendedor",      activo: true,  fechaRegistro: "2024-07-11" },
+ 
 ];
 
 const FORM_VACIO = {

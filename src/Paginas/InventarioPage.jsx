@@ -8,12 +8,7 @@ import Footer from "../Componentes/Footer";
 // ── Datos iniciales de ejemplo ──────────────────────────
 // Reemplaza esto con llamadas a tu API/backend
 const DATOS_INICIALES = [
-  { id: 1, codigo: "PRD-001", nombre: "Resma de Papel A4",      categoria: "Insumos",      stock: 5,  stockMinimo: 10, precio: 12000 },
-  { id: 2, codigo: "PRD-002", nombre: "Bolígrafo Azul x12",     categoria: "Insumos",      stock: 30, stockMinimo: 5,  precio: 8500  },
-  { id: 3, codigo: "PRD-003", nombre: "Tóner HP 85A",           categoria: "Insumos",      stock: 2,  stockMinimo: 3,  precio: 95000 },
-  { id: 4, codigo: "HRR-001", nombre: "Destornillador Phillips", categoria: "Herramientas", stock: 8,  stockMinimo: 2,  precio: 22000 },
-  { id: 5, codigo: "PRD-004", nombre: "Cuaderno Ejecutivo",     categoria: "Productos",    stock: 15, stockMinimo: 5,  precio: 18000 },
-  { id: 6, codigo: "PRD-005", nombre: "Archivador AZ",          categoria: "Productos",    stock: 4,  stockMinimo: 5,  precio: 15000 },
+ 
 ];
 
 // ── Formulario vacío ────────────────────────────────────
