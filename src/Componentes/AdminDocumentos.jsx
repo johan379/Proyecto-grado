@@ -9,19 +9,19 @@ const TIPO_BADGE = {
 };
 
 export default function AdminDocumentos({
-  // Datos
+ 
   documentos = [],
   busqueda = "",
   filtroTipo = "Todos",
   totalDocs = 0,
   totalFacturas = 0,
   totalSize = "",
-  // Modal subir
+  
   modalAbierto = false,
   formDoc = {},
   errorForm = "",
   archivoNombre = "",
-  // Handlers
+  
   onBuscar,
   onFiltroTipoChange,
   onAbrirModal,
@@ -35,7 +35,7 @@ export default function AdminDocumentos({
   return (
     <main className="ad">
 
-      {/* ── HEADER ── */}
+      
       <header className="ad__header">
         <div>
           <h1 className="ad__titulo">Documentos y <span>Facturas</span></h1>
@@ -46,7 +46,7 @@ export default function AdminDocumentos({
         </button>
       </header>
 
-      {/* ── STATS ── */}
+     
       <section className="ad__stats">
         <div className="ad__stat">
           <span className="ad__stat-icon">📁</span>
@@ -71,7 +71,7 @@ export default function AdminDocumentos({
         </div>
       </section>
 
-      {/* ── FILTROS ── */}
+      
       <section className="ad__filtros">
         <div className="ad__search-box">
           <span className="ad__search-ico">🔍</span>
@@ -99,7 +99,7 @@ export default function AdminDocumentos({
         </div>
       </section>
 
-      {/* ── GRID DE DOCUMENTOS ── */}
+     
       <section className="ad__docs-section">
         {documentos.length === 0 ? (
           <div className="ad__empty">
@@ -156,7 +156,7 @@ export default function AdminDocumentos({
         )}
       </section>
 
-      {/* ── MODAL SUBIR DOCUMENTO ── */}
+      
       {modalAbierto && (
         <div className="ad__overlay" onClick={onCerrarModal}>
           <div className="ad__modal" onClick={(e) => e.stopPropagation()}>

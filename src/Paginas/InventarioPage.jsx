@@ -1,17 +1,13 @@
-// Pages/InventarioPage.jsx
+// Paginas/InventarioPage.jsx
 // Toda la lógica, estados y handlers van aquí.
 
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import Inventario from "../Componentes/Inventario";
 import Footer from "../Componentes/Footer";
 
-// ── Datos iniciales de ejemplo ──────────────────────────
-// Reemplaza esto con llamadas a tu API/backend
-const DATOS_INICIALES = [
- 
-];
+const DATOS_INICIALES = [];
 
-// ── Formulario vacío ────────────────────────────────────
 const FORM_VACIO = {
   codigo: "", nombre: "", categoria: "",
   stock: "", stockMinimo: "", precio: "", descripcion: "",
@@ -19,17 +15,18 @@ const FORM_VACIO = {
 
 const FORM_VENTA_VACIO = { cantidad: "", precioVenta: "", cliente: "" };
 
-// ── Utilidades ──────────────────────────────────────────
-let nextId = DATOS_INICIALES.length + 1;
+let nextId = 1;
 
 export default function InventarioPage({ usuarioActual }) {
+  const navigate = useNavigate();
+
   // ── Permisos ──────────────────────────────────────────
   const esAdmin = usuarioActual?.rol === "Administrador";
 
   // ── Estado principal ──────────────────────────────────
-  const [productos, setProductos]         = useState(DATOS_INICIALES);
-  const [categoriaActiva, setCategoria]   = useState("Todos");
-  const [busqueda, setBusqueda]           = useState("");
+  const [productos, setProductos]       = useState(DATOS_INICIALES);
+  const [categoriaActiva, setCategoria] = useState("Todos");
+  const [busqueda, setBusqueda]         = useState("");
 
   // ── Modal producto ────────────────────────────────────
   const [modalAbierto, setModalAbierto]         = useState(false);
@@ -61,9 +58,13 @@ export default function InventarioPage({ usuarioActual }) {
     });
   }, [productos, categoriaActiva, busqueda]);
 
-  const stockBajoCount  = useMemo(() => productos.filter((p) => p.stock <= p.stockMinimo).length, [productos]);
+  const stockBajoCount   = useMemo(() => productos.filter((p) => p.stock <= p.stockMinimo).length, [productos]);
   const alertasStockBajo = useMemo(() => productos.filter((p) => p.stock <= p.stockMinimo), [productos]);
   const valorTotal       = useMemo(() => productos.reduce((acc, p) => acc + p.precio * p.stock, 0), [productos]);
+
+  // ── Handlers: navegación admin ────────────────────────
+  const handleIrUsuarios   = () => navigate("/AdminUsuario");
+  const handleIrDocumentos = () => navigate("/AdminDocumentos");
 
   // ── Handlers: modal producto ──────────────────────────
   const handleAbrirModalAgregar = () => {
@@ -96,22 +97,20 @@ export default function InventarioPage({ usuarioActual }) {
   const handleGuardarProducto = () => {
     const { codigo, nombre, categoria, stock, stockMinimo, precio } = formProducto;
 
-    // Validaciones
     if (!codigo.trim())    return setErrorForm("El código es obligatorio.");
     if (!nombre.trim())    return setErrorForm("El nombre es obligatorio.");
     if (!categoria.trim()) return setErrorForm("La categoría es obligatoria.");
-    if (stock === "" || isNaN(Number(stock)))         return setErrorForm("Ingresa un stock válido.");
+    if (stock === "" || isNaN(Number(stock)))             return setErrorForm("Ingresa un stock válido.");
     if (stockMinimo === "" || isNaN(Number(stockMinimo))) return setErrorForm("Ingresa un stock mínimo válido.");
-    if (precio === "" || isNaN(Number(precio)))       return setErrorForm("Ingresa un precio válido.");
+    if (precio === "" || isNaN(Number(precio)))           return setErrorForm("Ingresa un precio válido.");
 
-    // Verificar código duplicado (solo al crear)
     if (!productoEditando) {
       const existe = productos.find((p) => p.codigo.toLowerCase() === codigo.toLowerCase());
       if (existe) return setErrorForm("Ya existe un producto con ese código.");
     }
 
     const productoNuevo = {
-      id: productoEditando ? productoEditando.id : nextId++,
+      id:          productoEditando ? productoEditando.id : nextId++,
       codigo:      codigo.trim(),
       nombre:      nombre.trim(),
       categoria:   categoria.trim(),
@@ -161,19 +160,14 @@ export default function InventarioPage({ usuarioActual }) {
 
     if (!cantidad || isNaN(cantidad) || cantidad <= 0)
       return setErrorVenta("Ingresa una cantidad válida.");
-
     if (cantidad > productoVenta.stock)
       return setErrorVenta(`Stock insuficiente. Disponible: ${productoVenta.stock}`);
 
-    // Actualiza el stock automáticamente al registrar la venta
     setProductos((prev) =>
       prev.map((p) =>
         p.id === productoVenta.id ? { ...p, stock: p.stock - cantidad } : p
       )
     );
-
-    // TODO: aquí podrías también registrar la venta en el módulo de Gestión de Ventas
-    // Ejemplo: registrarVenta({ productoId: productoVenta.id, cantidad, precioVenta, cliente })
 
     handleCerrarModalVenta();
   };
@@ -208,6 +202,9 @@ export default function InventarioPage({ usuarioActual }) {
         onBuscar={setBusqueda}
         onCategoriaChange={setCategoria}
         onToggleAlertas={() => setAlertasVisible((v) => !v)}
+        // Handlers navegación admin
+        onIrUsuarios={handleIrUsuarios}
+        onIrDocumentos={handleIrDocumentos}
         // Handlers producto
         onAbrirModalAgregar={handleAbrirModalAgregar}
         onAbrirModalEditar={handleAbrirModalEditar}

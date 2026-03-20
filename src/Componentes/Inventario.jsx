@@ -31,6 +31,9 @@ export default function Inventario({
   onBuscar,
   onCategoriaChange,
   onToggleAlertas,
+  // Handlers navegación admin
+  onIrUsuarios,
+  onIrDocumentos,
   // Handlers producto
   onAbrirModalAgregar,
   onAbrirModalEditar,
@@ -66,10 +69,19 @@ export default function Inventario({
               <span className="inv__bell-badge">{stockBajoCount}</span>
             )}
           </button>
+
           {esAdmin && (
-            <button className="inv__btn-primary" onClick={onAbrirModalAgregar}>
-              ＋ Nuevo Producto
-            </button>
+            <>
+              <button className="inv__btn-secondary" onClick={onIrUsuarios}>
+                👥 Usuarios
+              </button>
+              <button className="inv__btn-secondary" onClick={onIrDocumentos}>
+                🗂️ Documentos
+              </button>
+              <button className="inv__btn-primary" onClick={onAbrirModalAgregar}>
+                ＋ Nuevo Producto
+              </button>
+            </>
           )}
         </div>
       </header>

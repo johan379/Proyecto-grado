@@ -1,8 +1,11 @@
+// Componentes/Finicio.jsx
+// Solo JSX. Sin lógica ni estados.
+
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style/Registro.css";
 
-export default function Finicio({ handleSubmit, form, handleChange }) {
+export default function Finicio({ handleSubmit, form, handleChange, mostrarSelectRol = false }) {
   return (
     <div className="registro-container">
       <h1 className="registro-titulo">Inicio de Sesión</h1>
@@ -36,7 +39,23 @@ export default function Finicio({ handleSubmit, form, handleChange }) {
           />
         </div>
 
-        <Link to="/recuperar" className="registro-link registro-forgot">
+        {/* ── Solo para pruebas sin backend — quitar después ── */}
+        {mostrarSelectRol && (
+          <div className="campo">
+            <label className="registro-label">🧪 Rol de prueba</label>
+            <select
+              name="rol"
+              value={form.rol}
+              onChange={handleChange}
+              className="registro-input"
+            >
+              <option value="Administrador">Administrador</option>
+              <option value="Vendedor">Vendedor</option>
+            </select>
+          </div>
+        )}
+
+        <Link to="/Recuperar" className="registro-link registro-forgot">
           ¿Olvidaste tu contraseña?
         </Link>
 
@@ -45,9 +64,8 @@ export default function Finicio({ handleSubmit, form, handleChange }) {
 
       <p className="registro-footer">
         ¿Aún no tienes una cuenta?{" "}
-        <Link to="/registro" className="registro-link">Créala aquí</Link>
+        <Link to="/Registro" className="registro-link">Créala aquí</Link>
       </p>
-
     </div>
   );
 }
