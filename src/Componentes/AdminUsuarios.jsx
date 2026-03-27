@@ -513,6 +513,8 @@ export default function AdminUsuarios({
                 <div className="au__field"><label>NIT / Cédula *</label><input type="text" name="nit" value={formProv.nit || ""} onChange={onFormProvChange} placeholder="000000000" /></div>
                 <div className="au__field"><label>Teléfono</label><input type="text" name="telefono" value={formProv.telefono || ""} onChange={onFormProvChange} placeholder="+57 300 000 0000" /></div>
                 <div className="au__field"><label>Correo</label><input type="email" name="correo" value={formProv.correo || ""} onChange={onFormProvChange} placeholder="correo@proveedor.com" /></div>
+                <div className="au__field"><label>Ciudad</label><input type="text" name="ciudad" value={formProv.ciudad || ""} onChange={onFormProvChange} placeholder="Ciudad" /></div>
+                
                 <div className="au__field"><label>Tipo *</label><input type="text" name="tipo" value={formProv.tipo || ""} onChange={onFormProvChange} placeholder="Ej: Insumos, Tecnología" /></div>
               </div>
             </div>

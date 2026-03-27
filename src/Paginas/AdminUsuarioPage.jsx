@@ -7,7 +7,7 @@ import Footer from "../Componentes/Footer";
 const FORM_USUARIO  = { nombre: "", correo: "", rol: "", contrasena: "", confirmarContrasena: "", activo: "true" };
 const FORM_NOMINA   = { nombre: "", cargo: "", salarioBase: "", horasExtras: "", recargos: "", deducciones: "", fechaPago: "" };
 const FORM_GASTO    = { descripcion: "", categoria: "", monto: "", fecha: "" };
-const FORM_PROV     = { nombre: "", nit: "", telefono: "", correo: "", tipo: "" };
+const FORM_PROV     = { nombre: "", nit: "", telefono: "", correo: "", ciudad: "", tipo: "" };
 const FORM_SERV     = { nombre: "", tipo: "", monto: "", fecha: "" };
 const FORM_ARRIENDO = { descripcion: "", arrendador: "", valorMensual: "", fechaPago: "", activo: "true" };
 
@@ -77,10 +77,10 @@ export default function AdminUsuariosPage() {
 
   // ── Total nómina calculado en tiempo real ─────────────
   const totalNominaCalculado = useMemo(() => {
-    const base       = Number(formNomina.salarioBase  || 0);
-    const extras     = Number(formNomina.horasExtras  || 0);
-    const recargos   = Number(formNomina.recargos     || 0);
-    const deducciones= Number(formNomina.deducciones  || 0);
+    const base        = Number(formNomina.salarioBase  || 0);
+    const extras      = Number(formNomina.horasExtras  || 0);
+    const recargos    = Number(formNomina.recargos     || 0);
+    const deducciones = Number(formNomina.deducciones  || 0);
     return base + extras + recargos - deducciones;
   }, [formNomina.salarioBase, formNomina.horasExtras, formNomina.recargos, formNomina.deducciones]);
 
