@@ -1,5 +1,5 @@
 // Paginas/InventarioPage.jsx
-// Toda la lógica, estados y handlers van aquí.
+// Se agrega navegación al panel de IA para administradores.
 
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
@@ -65,6 +65,7 @@ export default function InventarioPage({ usuarioActual }) {
   // ── Handlers: navegación admin ────────────────────────
   const handleIrUsuarios   = () => navigate("/AdminUsuario");
   const handleIrDocumentos = () => navigate("/AdminDocumentos");
+  const handleIrChatIA     = () => navigate("/ChatIA"); // ← NUEVO
 
   // ── Handlers: modal producto ──────────────────────────
   const handleAbrirModalAgregar = () => {
@@ -205,6 +206,7 @@ export default function InventarioPage({ usuarioActual }) {
         // Handlers navegación admin
         onIrUsuarios={handleIrUsuarios}
         onIrDocumentos={handleIrDocumentos}
+        onIrChatIA={handleIrChatIA}        // ← NUEVO
         // Handlers producto
         onAbrirModalAgregar={handleAbrirModalAgregar}
         onAbrirModalEditar={handleAbrirModalEditar}
